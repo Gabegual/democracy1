@@ -21,7 +21,7 @@ public class RandomCircles extends GraphicsProgram {
 			int y = rgen.nextInt(0, getHeight());
 
 			/* Making the Circles */
-			GOval Circ = new GOval(x / 1, y / 1, size, size);
+			GOval Circ = new GOval(x*4, y*4, size, size);
 			Circ.setFilled(true);
 			Circ.setFillColor(rgen.nextColor());
 			Circ.setColor(rgen.nextColor());

@@ -4,8 +4,7 @@ import java.awt.Event;
 import java.awt.event.MouseEvent;
 import acm.graphics.*;
 public class DrawingLines extends GraphicsProgram {
-	public void run() {
-		addMouseListeners();
+	public void run() { addMouseListeners();
 	}/*this starts the line*/
 	GLine StartLine;
 	public void mousePressed(MouseEvent e) {

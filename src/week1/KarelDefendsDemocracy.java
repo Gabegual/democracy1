@@ -1,38 +1,39 @@
 package week1;
+
 import stanford.karel.*;
 
 public class KarelDefendsDemocracy extends SuperKarel {
 
 	public void run() {
-		
-		for(int i=0;i<5;i++) {
-			if(frontIsClear()) {
+
+		for (int i = 0; i < 5; i++) {
+			if (frontIsClear()) {
 				move();
 			}
 		}
-		if(leftIsClear()) {
+		if (leftIsClear()) {
 			turnLeft();
 			move();
 			pickBeeper();
 			turnAround();
 		}
-		if(frontIsClear()) {
+		if (frontIsClear()) {
 			move();
 			turnLeft();
 		}
-		for(int i=0;i<4;i++){
-			if(frontIsClear()) {
+		for (int i = 0; i < 4; i++) {
+			if (frontIsClear()) {
 				move();
 			}
 		}
-		if(leftIsClear()) {
+		if (leftIsClear()) {
 			turnLeft();
 			move();
 			pickBeeper();
 			turnAround();
 			move();
 			move();
-			if(beepersPresent()) {
+			if (beepersPresent()) {
 				pickBeeper();
 				pickBeeper();
 			}
@@ -41,9 +42,7 @@ public class KarelDefendsDemocracy extends SuperKarel {
 			turnRight();
 			move();
 		}
-		
-				
+
 	}
-	
-		
+
 }
