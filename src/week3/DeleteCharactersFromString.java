@@ -10,12 +10,9 @@ public class DeleteCharactersFromString extends ConsoleProgram {
 		String str = input.replaceAll(toRemove, " ");
 		return str;
 	}
-
 	public void run() {
-
 		println(removeAllOccurrences("How many shrimps do you have to eat" + " Before you make your skin turn pink"
 				+ " Eat too much and you'll get sick" + " Shrimps are pretty rich", "h"));
-
 	}
 
 }
