@@ -1,5 +1,6 @@
 package week4;
 import acm.graphics.*;
+
 import acm.program.ConsoleProgram;
 import acm.program.GraphicsProgram;
 import acm.graphics.*;
