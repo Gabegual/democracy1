@@ -10,7 +10,7 @@ import acm.util.ErrorException;
 
 public class FlightPlanner extends ConsoleProgram {
 
-	private HashMap<String, ArrayList<String>> flights;
+	private HashMap<String, ArrayList<String>> flights = new HashMap<>();
 	private ArrayList<String> enteredCities = new ArrayList<String>();
 	private String firstCity;
 
@@ -22,7 +22,7 @@ public class FlightPlanner extends ConsoleProgram {
 
 	private void Welcome() {
 		println("Welcome to Flight Planner");
-		readFlightData("FlightPlanner");
+		readFlightData("FlightPlanner.txt");
 		println("Here is a list of all the Cities in our database");
 		printCityList(enteredCities);
 		println("Lets plan a round-trip route!");
@@ -42,19 +42,20 @@ public class FlightPlanner extends ConsoleProgram {
 	}
 
 	private String askForFirstCity(String city) {
-		ArrayList<String> destinations = getDestinations(enteredCities);
+		ArrayList<String> destinations = getDestinations(city);
 		String nextCity = null;
 		while (true) {
-			println("From" + enteredCities + "you can fly directlyto: ");
+			println("From " + city + " you can fly directly to: ");
 			printCityList(destinations);
-			String prompt = ("Where do you want to depart from" + enteredCities + "?");
+			String prompt = ("Where do you want to depart from" + city + "?");
 			nextCity = readLine(prompt);
 			if (destinations.contains(nextCity)) {
-				break;
 				println("you can`t get to the city by direct flight.");
+				break;
 			}
 			return nextCity;
 		}
+		return null;
 	}
 
 	private ArrayList<String> getDestinations(String fromCity) {
@@ -82,8 +83,6 @@ public class FlightPlanner extends ConsoleProgram {
 	}
 
 	private void readFlightData(String filename) {
-		flights = new HashMap<String, ArrayList<String>>();
-		enteredCities = new ArrayList<String>();
 		try {
 			BufferedReader FlightPlanner = new BufferedReader(new FileReader(filename));
 			while (true) {
@@ -92,7 +91,7 @@ public class FlightPlanner extends ConsoleProgram {
 					break;
 				} else if (line.length() != 0) {
 					readFilghtEntry(line);
-					;
+					
 				}
 			}
 			FlightPlanner.close();
@@ -115,6 +114,7 @@ public class FlightPlanner extends ConsoleProgram {
 
 	private void defineCity(String cityName) {
 		if (!enteredCities.contains(cityName)) {
+			System.out.println(cityName);
 			enteredCities.add(cityName);
 			flights.put(cityName, new ArrayList<String>());
 		}

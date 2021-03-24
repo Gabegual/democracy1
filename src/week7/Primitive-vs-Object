@@ -1,0 +1,32 @@
+Section Handout 9 Primitive vs Object
+
+1. Primitive vs. Objects
+	Let's say a student writes the following line of code in a predicate method (i.e., a method
+	that returns a boolean):
+	public boolean IsNameQ() {
+	String name = readLine("Enter name: ");
+	return (name == "Q");
+}
+	The author of this code thinks that the program will return true if the player’s name is
+		"Q". What’s the problem here?
+	Now consider if the code were written as:
+	
+	public boolean IsNameQ() {
+	String name = readLine("Enter name: ");
+	char ch = name.charAt(0);
+	return ((ch == 'Q') && (name.length() == 1));
+}
+	How is the code above different with respect to checking for equality with the value "Q
+	
+	In the first method--- 
+	the student uses a generalize method
+	expecting the user to input a name with Q, 
+	and returns name == Q but it doesnt give exact parameters,
+	so a user can input a longer name with out q and nothing runs.
+	
+	In the second method---
+	the student sets two parameters a String and a Char, 
+	the student returns a char and index 0
+	and sets name length at 1. This makes the user input
+	a name with only one letter and the letter has to be a Q 
+	to be returned.  
